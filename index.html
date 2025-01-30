@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            background-color: #ffe6f2;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .heart-large {
+            font-size: 5rem;
+            color: #d63384;
+        }
+
+        .heart-small {
+            font-size: 2rem;
+            color: #d63384;
+            margin: 0 10px;
+        }
+
+        .text-container {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .curved-text {
+            display: inline-block;
+            font-size: 2.5rem;
+            color: #d63384;
+            /* transform: rotate(-10deg); */
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no {
+            background-color: #b3b3b3;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heart-large">❤️</div>
+    <div class="text-container">
+        ¿QUIERES <br>
+        <span class="heart-small">💖</span> SER MI <span class="heart-small">💖</span> <br>
+        <span class="curved-text">SAN VALENTÍN?</span>
+    </div>
+    <div class="buttons-container">
+        <button class="yes" onclick="showSurprise()">Sí</button>
+        <button class="no" onclick="moveNo()">No</button>
+    </div>
+
+    <script>
+        function moveNo() {
+            let button = document.querySelector('.no');
+            let maxX = window.innerWidth - button.offsetWidth - 20;
+            let maxY = window.innerHeight - button.offsetHeight - 20;
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            button.style.position = "absolute";
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        function showSurprise() {
+            Swal.fire({
+                title: '🎁 ¡Sorpresa! 🎁',
+                html: '<STRONG>¡Corre a la cajuela!</STRONG> <br>💝 Te espera algo especial 💝',
+                background: '#ffe6f2',
+                confirmButtonText: '¡Voy corriendo! 🏃‍♂️💨',
+                confirmButtonColor: '#28a745',
+                customClass: {
+                    popup: 'animated tada'
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
